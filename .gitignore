@@ -1,0 +1,16 @@
+.DS_Store
+._*
+Thumbs.db
+*.log
+.env
+.env.*
+node_modules/
+.venv/
+*-venv/
+__pycache__/
+.idea/
+.vscode/
+
+# keep raw slide-named PPTX exports out of git, ship only the renamed ones
+assets/img/slide*.png
+assets/img/slide*.jpg
