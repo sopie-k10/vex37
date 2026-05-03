@@ -14,21 +14,22 @@
   <link rel="icon" type="image/png" href="assets/img/logo-37x.png" />
   <link rel="stylesheet" href="css/styles.css" />
 
-  <!-- ── Cloudflare Web Analytics ─────────────────────────────────────────
-       Privacy-friendly, cookie-less pageview tracking. To enable:
-       1. Sign up at https://www.cloudflare.com/web-analytics/
-       2. Add site `https://sopie-k10.github.io/vex37/`
-       3. Paste the resulting token between the quotes below.
-       Until a token is set, no beacon fires (safe to ship empty). ── -->
-  <script>window.__CF_BEACON_TOKEN__ = "";</script>
+  <!-- ── GoatCounter Web Analytics ────────────────────────────────────────
+       Privacy-friendly, cookie-less pageview tracking that works on
+       github.io subdomains directly. To enable:
+       1. Sign up at https://www.goatcounter.com and pick a site code
+          (e.g. "vex37" → dashboard at vex37.goatcounter.com).
+       2. Paste the site code between the quotes below.
+       Until a site code is set, no beacon fires (safe to ship empty). ── -->
+  <script>window.__GC_SITE_CODE__ = "";</script>
   <script>
     (function () {
-      var t = window.__CF_BEACON_TOKEN__;
-      if (!t) return;
+      var c = window.__GC_SITE_CODE__;
+      if (!c) return;
       var s = document.createElement('script');
-      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
-      s.defer = true;
-      s.setAttribute('data-cf-beacon', JSON.stringify({ token: t }));
+      s.async = true;
+      s.src = '//gc.zgo.at/count.js';
+      s.setAttribute('data-goatcounter', 'https://' + c + '.goatcounter.com/count');
       document.head.appendChild(s);
     })();
   </script>
