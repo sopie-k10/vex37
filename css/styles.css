@@ -423,6 +423,27 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
   font-size: 1.6rem;
   color: var(--heat);
 }
+
+/* Cards that open an event modal. Tiny "Read more →" affordance so the
+   tap target reads as interactive without competing with the headline. */
+.ach__card--clickable { cursor: pointer; outline: none; }
+.ach__card--clickable:focus-visible {
+  border-color: var(--hot);
+  box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.35);
+}
+.ach__card-cta {
+  display: block;
+  margin-top: .9rem;
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hot);
+  opacity: 0.7;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.ach__card--clickable:hover .ach__card-cta { opacity: 1; transform: translateX(3px); }
 .ach__caption {
   color: var(--muted);
   font-size: .87rem;
@@ -712,6 +733,115 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
   transform: none;
 }
 
+/* ── event modal ───────────────────────────────────────────────────────── */
+.modal {
+  width: min(640px, calc(100vw - 2rem));
+  max-height: calc(100vh - 4rem);
+  padding: 0;
+  border: 1px solid var(--border-hot);
+  border-radius: var(--r);
+  background: linear-gradient(165deg, var(--surface) 0%, var(--bg-soft) 100%);
+  color: var(--cream);
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.modal[open] {
+  animation: modalIn .25s ease-out;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(8px) scale(.98); }
+  to   { opacity: 1; transform: none; }
+}
+.modal__close {
+  position: absolute;
+  top: .5rem; right: .75rem;
+  width: 36px; height: 36px;
+  background: transparent;
+  border: none;
+  color: var(--cream-dim);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background .15s ease, color .15s ease;
+}
+.modal__close:hover { background: var(--surface-2); color: var(--cream); }
+.modal__body {
+  padding: 2rem 1.75rem 1.75rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 4rem);
+}
+.modal__kicker {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--hot);
+  margin: 0 0 .65rem;
+}
+.modal h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  letter-spacing: 0.01em;
+  margin: 0 0 1rem;
+  color: var(--cream);
+  padding-right: 2rem;
+  line-height: 1.1;
+}
+.modal__body > p {
+  color: var(--cream-dim);
+  font-size: .98rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+.modal__body > p b { color: var(--cream); }
+.modal__awards {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: .75rem;
+}
+.modal__awards li {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: .85rem;
+  align-items: start;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--hot);
+  border-radius: 8px;
+  padding: .75rem .9rem;
+}
+.modal__medal {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+.modal__awards b {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  color: var(--heat);
+  margin-bottom: .15rem;
+}
+.modal__awards span {
+  display: block;
+  font-size: .88rem;
+  line-height: 1.5;
+  color: var(--cream-dim);
+}
+@media (max-width: 540px) {
+  .modal__awards li { grid-template-columns: 1fr; }
+  .modal__medal { display: inline-block; }
+}
+
 /* ── reduced motion ────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
@@ -719,4 +849,5 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
   .story, .ach, .team, .tiers, .sponsors-current, .contact {
     opacity: 1; transform: none;
   }
+  .modal[open] { animation: none; }
 }

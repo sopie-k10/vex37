@@ -131,17 +131,20 @@
       <article class="ach__card ach__card--feat">
         <img src="assets/img/achievements-trophies.jpg" alt="Robot surrounded by VEX V5 tournament trophies" />
       </article>
-      <article class="ach__card">
+      <article class="ach__card ach__card--clickable" data-modal="ontario" role="button" tabindex="0" aria-label="View details for Ontario Provincial Championships">
         <h3>2024</h3>
         <p><b>Ontario Provincial Champions</b><br />+ Amaze Award</p>
+        <span class="ach__card-cta">Read more &rarr;</span>
       </article>
-      <article class="ach__card">
+      <article class="ach__card ach__card--clickable" data-modal="space-city" role="button" tabindex="0" aria-label="View details for Space City Signature Event">
         <h3>2025</h3>
         <p><b>Space City Signature Champions</b><br />+ Amaze Award &amp; Robot Skills Second Place</p>
+        <span class="ach__card-cta">Read more &rarr;</span>
       </article>
-      <article class="ach__card">
+      <article class="ach__card ach__card--clickable" data-modal="robot-rodeo" role="button" tabindex="0" aria-label="View details for Robot Rodeo DFW Signature Event">
         <h3>2026</h3>
-        <p><b>Robot Rodeo Signature</b><br />First Place Champions</p>
+        <p><b>Robot Rodeo DFW Signature</b><br />First Place Champions</p>
+        <span class="ach__card-cta">Read more &rarr;</span>
       </article>
       <article class="ach__card ach__card--world">
         <h3>Worldwide</h3>
@@ -323,6 +326,45 @@
     <p class="footer__legal">© 2026 Team 37X. Independent VEX V5 student team based in Ontario, Canada. Not affiliated with the VEX Robotics company.</p>
   </div>
 </footer>
+
+<!-- ── Event detail modals ─────────────────────────────────────────────────
+     Each <template> holds the content for one achievement. JS clones the
+     content into the shared <dialog> when an achievement card is tapped. -->
+
+<template id="modal-ontario">
+  <p class="modal__kicker">2024 · Markham Pan Am Centre, Ontario</p>
+  <h2>Ontario VRC Provincial Championships</h2>
+  <p>The most significant and competitive event in the region, bringing together <b>68 of the best teams</b> from across Ontario. As the definitive path to the postseason, this tournament is the highest level of competition in the province.</p>
+  <ul class="modal__awards">
+    <li><span class="modal__medal">🏆</span><div><b>Tournament Champion</b><span>Direct qualification to the VEX Robotics World Championship.</span></div></li>
+    <li><span class="modal__medal">✨</span><div><b>Amaze Award</b><span>Recognised for the robot's high-quality engineering and consistency, resulting in a second qualification to Worlds in the same event.</span></div></li>
+  </ul>
+</template>
+
+<template id="modal-space-city">
+  <p class="modal__kicker">2025 · Clear Creek ISD Robotics Event Center, Houston, Texas</p>
+  <h2>Space City Signature Event</h2>
+  <p>One of the most prestigious and difficult tournaments of the season. It draws <b>70 of the most elite teams</b> from across North America and offers only a few select awards that directly qualify for the VEX Robotics World Championship.</p>
+  <ul class="modal__awards">
+    <li><span class="modal__medal">🏆</span><div><b>Tournament Champion</b><span>Defeated the highest level of competition to secure a direct spot at the World Championship.</span></div></li>
+    <li><span class="modal__medal">🥈</span><div><b>Robot Skills, 2nd Place</b><span>Second-highest combined programming and driving score in the field.</span></div></li>
+    <li><span class="modal__medal">✨</span><div><b>Amaze Award</b><span>Awarded for building a high-scoring robot that demonstrates top-tier engineering and quality.</span></div></li>
+  </ul>
+</template>
+
+<template id="modal-robot-rodeo">
+  <p class="modal__kicker">2026 · Irving Convention Center, Dallas-Fort Worth</p>
+  <h2>Robot Rodeo DFW Signature Event</h2>
+  <p>One of the most prestigious and highly anticipated tournaments of the season, serving as the <b>first-ever Signature Event in the Dallas-Fort Worth area</b>. It draws 80 of the most elite teams from across North America and features a select few awards that directly qualify for the VEX Robotics World Championship.</p>
+  <ul class="modal__awards">
+    <li><span class="modal__medal">🏆</span><div><b>Tournament Champion</b><span>Rose from a lower rank to the top of an incredibly competitive field, securing direct qualification for the World Championship for the second time in the same season.</span></div></li>
+  </ul>
+</template>
+
+<dialog id="event-modal" class="modal" aria-labelledby="event-modal-title">
+  <button type="button" class="modal__close" aria-label="Close">&times;</button>
+  <div class="modal__body"></div>
+</dialog>
 
 <script src="js/app.js" defer></script>
 </body>
