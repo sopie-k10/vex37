@@ -464,7 +464,7 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
 .team { padding: clamp(4rem, 8vw, 7rem) 0; }
 .team__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
 }
 .member {
