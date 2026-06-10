@@ -17,3 +17,6 @@ assets/img/slide*.jpg
 
 # private outreach lists — keep local
 donors_prospects.md
+
+# sponsor invoices — billing data + e-Transfer email, never publish (public GitHub Pages repo)
+invoices/
