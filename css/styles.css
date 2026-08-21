@@ -5,20 +5,20 @@
 
 :root {
   /* palette */
-  --bg:          #0c0a09;
-  --bg-soft:     #14110f;
-  --surface:     #1c1815;
-  --surface-2:   #25201c;
-  --border:      #2e2823;
-  --border-hot:  #4a342a;
+  --bg:          #060505;
+  --bg-soft:     #0b0908;
+  --surface:     #120f0d;
+  --surface-2:   #1a1613;
+  --border:      #241f1b;
+  --border-hot:  #3d2a21;
 
-  --pepper:      #e23e3e;   /* primary chili red */
-  --pepper-deep: #b3232a;
-  --hot:         #ff6b35;   /* heat orange */
-  --heat:        #ffb800;   /* heat yellow */
-  --cream:       #f5e9d4;   /* warm off-white */
-  --cream-dim:   #c9bfae;
-  --muted:       #8d8478;
+  --pepper:      #d33636;   /* primary chili red */
+  --pepper-deep: #991d24;
+  --hot:         #ee5f28;   /* heat orange */
+  --heat:        #eda600;   /* heat yellow */
+  --cream:       #f0e4cf;   /* warm off-white */
+  --cream-dim:   #bcb2a2;
+  --muted:       #7d756a;
 
   --bronze:      #c08456;
   --silver:      #c9c9c9;
@@ -157,7 +157,7 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
   display: flex; align-items: center;
   gap: 1.5rem;
   padding: .85rem var(--pad);
-  background: rgba(12, 10, 9, 0.85);
+  background: rgba(6, 5, 5, 0.86);
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid var(--border);
@@ -193,15 +193,15 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
 .hero__bg {
   position: absolute; inset: 0;
   background:
-    radial-gradient(60% 60% at 78% 30%, rgba(255, 107, 53, 0.20) 0%, transparent 60%),
-    radial-gradient(60% 80% at 15% 85%, rgba(226, 62, 62, 0.18) 0%, transparent 65%),
+    radial-gradient(60% 60% at 78% 30%, rgba(238, 95, 40, 0.13) 0%, transparent 60%),
+    radial-gradient(60% 80% at 15% 85%, rgba(211, 54, 54, 0.12) 0%, transparent 65%),
     linear-gradient(160deg, var(--bg) 0%, var(--bg-soft) 100%);
   z-index: 0;
 }
 .hero__bg::after {
   content: ''; position: absolute; inset: 0;
   background-image:
-    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.035) 1px, transparent 0);
   background-size: 28px 28px;
   opacity: 0.3;
   mask-image: radial-gradient(circle at 50% 30%, black, transparent 70%);
@@ -249,7 +249,7 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
 .hero__art::before {
   content: '';
   position: absolute; inset: 8% 12%;
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.35) 0%, transparent 65%);
+  background: radial-gradient(circle, rgba(238, 95, 40, 0.24) 0%, transparent 65%);
   filter: blur(40px);
   z-index: 0;
 }
@@ -261,7 +261,7 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
 }
 .hero__chip {
   position: absolute;
-  background: rgba(28, 24, 21, 0.85);
+  background: rgba(14, 11, 10, 0.88);
   backdrop-filter: blur(8px);
   border: 1px solid var(--border-hot);
   border-radius: 12px;
@@ -518,7 +518,7 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
 .tiers {
   padding: clamp(4rem, 8vw, 7rem) 0;
   background:
-    radial-gradient(70% 60% at 50% 0%, rgba(226, 62, 62, 0.10) 0%, transparent 65%),
+    radial-gradient(70% 60% at 50% 0%, rgba(211, 54, 54, 0.07) 0%, transparent 65%),
     var(--bg-soft);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
@@ -641,7 +641,9 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
   align-items: stretch;
 }
 .sponsor-card {
-  background: #ffffff;
+  /* Kept light — sponsor logos are supplied for light backgrounds. Softened
+     off-white rather than pure white so the cards don't glare on the darker page. */
+  background: #ece7de;
   border: 1px solid var(--border);
   border-radius: var(--r);
   padding: 1.25rem 1.5rem 1rem;
@@ -670,6 +672,9 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
   height: auto;
   max-width: 100%;
   max-height: 100%;
+  /* Sponsor logos are stored as PNGs with the white background removed, so they
+     sit flush on the card. If a sponsor sends a JPEG with white baked in, run it
+     through the same white-to-transparent pass rather than adding it as-is. */
 }
 /* Mark variant (square / portrait) — bounded square to keep them from dominating. */
 .sponsor-card--mark img {
@@ -788,8 +793,8 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
 
 /* ── nav scroll state ──────────────────────────────────────────────────── */
 .nav.is-scrolled {
-  background: rgba(12, 10, 9, 0.95);
-  box-shadow: 0 6px 20px -10px rgba(0, 0, 0, 0.6);
+  background: rgba(6, 5, 5, 0.96);
+  box-shadow: 0 6px 20px -10px rgba(0, 0, 0, 0.75);
 }
 
 /* ── fade-in on scroll ─────────────────────────────────────────────────── */
