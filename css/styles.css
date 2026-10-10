@@ -940,3 +940,17 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
   }
   .modal[open] { animation: none; }
 }
+
+/* ── Contact form (2026-10-09: replaces the email address; same kind of form as emmakao.com) ── */
+.cf{display:grid;gap:14px;margin:18px 0 0;font:inherit;color:inherit;text-align:left}
+.cf-field{display:grid;gap:6px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;opacity:.9}
+.cf-field input,.cf-field textarea{font:inherit;font-size:1rem;letter-spacing:normal;text-transform:none;color:inherit;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.22);border-radius:6px;padding:11px 12px;width:100%;box-sizing:border-box}
+.cf-field textarea{resize:vertical;min-height:120px}
+.cf-field input:focus,.cf-field textarea:focus{outline:2px solid var(--cf-accent,var(--pepper));outline-offset:1px;border-color:transparent}
+.cf-hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.cf-send{justify-self:start;font:inherit;font-weight:700;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;
+  padding:12px 26px;border:0;border-radius:999px;background:linear-gradient(95deg,var(--pepper) 0%,var(--hot) 100%);color:#fff}
+.cf-send[disabled]{opacity:.55;cursor:default}
+.cf-status{margin:0;min-height:1.4em;font-size:.95rem}
+.cf-status.ok{color:#7ddc8f}.cf-status.err{color:#ff8a80}

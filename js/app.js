@@ -67,3 +67,34 @@
     });
   }
 })();
+
+/* Contact form (2026-10-09): posts to the team's endpoint; tier buttons prefill the message. */
+(function () {
+  var f = document.getElementById('team-form');
+  if (!f) return;
+  var t = f.querySelector('input[name="t"]'), st = f.querySelector('.cf-status'), btn = f.querySelector('.cf-send');
+  var msg = f.querySelector('textarea[name="message"]');
+  t.value = String(Date.now());
+  document.querySelectorAll('[data-topic]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var topic = a.getAttribute('data-topic');
+      if (!msg.value.trim()) msg.value = topic === 'Sponsorship'
+        ? "Hi Team 37X, we're interested in sponsoring the team. "
+        : "Hi Team 37X, we're interested in the " + topic.replace(/ Tier$/, '') + ' tier. ';
+      setTimeout(function () { f.querySelector('input[name="name"]').focus({ preventScroll: true }); }, 500);
+    });
+  });
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    st.className = 'cf-status'; st.textContent = 'Sending…'; btn.disabled = true;
+    fetch(f.action, { method: 'POST', body: new FormData(f) })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (j) {
+        if (j && j.ok) { f.reset(); t.value = String(Date.now()); st.className = 'cf-status ok';
+                         st.textContent = 'Thank you. Your message is on its way to the team.'; }
+        else { st.className = 'cf-status err'; st.textContent = (j && j.error) || 'Something went wrong. Please try again.'; }
+      })
+      .catch(function () { st.className = 'cf-status err'; st.textContent = 'No connection. Please try again.'; })
+      .then(function () { btn.disabled = false; });
+  });
+})();

@@ -36,7 +36,7 @@ To swap an image, replace the file in `assets/img/` keeping the same filename, o
 
 ## Sponsor tier CTAs
 
-Each tier card has a `mailto:` link with a pre-filled subject line (tier name included). When a sponsor taps "Sponsor at Gold" their mail client opens with `Subject: 37X Sponsorship - Gold Chassis Tier` already populated. No backend, no form-handling service required.
+Each tier card's button links to the contact form (#contact) and prefills the message with the tier (`data-topic` + js/app.js). There is no email address on the site (Darren, 2026-10-09). The form posts to https://www.walvis.ca/agent-37x/send.php (walvis.ca's spam checks, encrypted, delivered to the team by Friday's contact collector; threatening messages go to Darren). Agent 37X uses the same endpoint for "pass a message".
 
 ## Branding
 

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
 
   <link rel="icon" type="image/png" href="assets/img/logo-37x.png" />
-  <link rel="stylesheet" href="css/styles.css?v=2" />
+  <link rel="stylesheet" href="css/styles.css?v=3" />
 
   <!-- ── GoatCounter Web Analytics ────────────────────────────────────────
        Privacy-friendly, cookie-less pageview tracking that works on
@@ -169,8 +169,8 @@
       <article class="member">
         <div class="member__photo"><img src="assets/img/team-1.png" alt="" /></div>
         <h3>Sophie Kao</h3>
-        <p class="member__role">Team Manager</p>
-        <p class="member__bio">Manages team organization, finances, and sponsorships.</p>
+        <p class="member__role">Team Manager &amp; Web Programmer</p>
+        <p class="member__bio">Manages team organization, finances, and sponsorships, and designed and developed this website.</p>
       </article>
       <article class="member">
         <div class="member__photo"><img src="assets/img/team-2.png" alt="" /></div>
@@ -216,7 +216,7 @@
           <li>Company sticker on robot transport box</li>
           <li>Logo and website link on team webpage</li>
         </ul>
-        <a class="btn btn--tier" href="mailto:sophieskao@gmail.com?subject=37X%20Sponsorship%20-%20Bronze%20Gear%20Tier">Sponsor at Bronze</a>
+        <a class="btn btn--tier" href="#contact" data-topic="Bronze Gear Tier">Sponsor at Bronze</a>
       </article>
 
       <article class="tier tier--silver">
@@ -231,7 +231,7 @@
           <li>Logo on pit banner, displayed at every tournament</li>
           <li>Listed in the "About Our Sponsors" section</li>
         </ul>
-        <a class="btn btn--tier" href="mailto:sophieskao@gmail.com?subject=37X%20Sponsorship%20-%20Silver%20Mechanism%20Tier">Sponsor at Silver</a>
+        <a class="btn btn--tier" href="#contact" data-topic="Silver Mechanism Tier">Sponsor at Silver</a>
       </article>
 
       <article class="tier tier--gold">
@@ -248,7 +248,7 @@
           <li>Website link in our LinkTree + every post</li>
           <li>Monthly Instagram Story, saved to Sponsors highlight</li>
         </ul>
-        <a class="btn btn--tier" href="mailto:sophieskao@gmail.com?subject=37X%20Sponsorship%20-%20Gold%20Chassis%20Tier">Sponsor at Gold</a>
+        <a class="btn btn--tier" href="#contact" data-topic="Gold Chassis Tier">Sponsor at Gold</a>
       </article>
 
       <article class="tier tier--platinum">
@@ -265,7 +265,7 @@
           <li>Logo placement front, back, and sleeve</li>
           <li>Custom stickers with your company logo and name, handed out at every tournament</li>
         </ul>
-        <a class="btn btn--tier" href="mailto:sophieskao@gmail.com?subject=37X%20Sponsorship%20-%20Platinum%20Partner%20Tier">Sponsor at Platinum</a>
+        <a class="btn btn--tier" href="#contact" data-topic="Platinum Partner Tier">Sponsor at Platinum</a>
       </article>
 
     </div>
@@ -324,7 +324,7 @@
       </li>
     </ul>
     <div class="sponsors-current__cta">
-      <a href="mailto:sophieskao@gmail.com?subject=37X%20Sponsorship%20Inquiry" class="btn btn--ghost">Add your logo here</a>
+      <a href="#contact" data-topic="Sponsorship" class="btn btn--ghost">Add your logo here</a>
     </div>
   </div>
 </section>
@@ -335,18 +335,27 @@
     <div>
       <h2 class="section-title"><span class="section-title__num">06</span>&nbsp;Get in touch</h2>
       <p class="section-lede">
-        Send us an email, a message, or set up a quick call. We'd be happy to hear from you.
+        Send us a message with the form, or reach us on Instagram or LinkedIn. We'd be happy to hear from you.
       </p>
       <ul class="contact__list">
-        <li><span>Email</span><a href="mailto:sophieskao@gmail.com">sophieskao@gmail.com</a></li>
         <li><span>Instagram</span><a href="https://instagram.com/37X_VEX" target="_blank" rel="noopener">@37X_VEX</a></li>
         <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/sophiekao/" target="_blank" rel="noopener">Sophie Kao</a></li>
       </ul>
     </div>
     <div class="contact__cta">
       <h3>Ready to back a Worlds run?</h3>
-      <p>Pick a tier above or send a note. Contact us today.</p>
-      <a href="mailto:sophieskao@gmail.com?subject=37X%20Sponsorship%20Inquiry" class="btn btn--primary">Email the team</a>
+      <p>Pick a tier above or send us a note. A team member reads every message.</p>
+      <!-- Contact form (Darren 2026-10-09: no email address on the site; same kind of form as emmakao.com).
+           Posts to the team's endpoint on walvis.ca: walvis.ca's spam checks, encrypted, delivered to the team. -->
+      <form class="cf" id="team-form" action="https://www.walvis.ca/agent-37x/send.php" method="post" novalidate style="--cf-accent:var(--pepper)">
+        <label class="cf-field"><span>Name</span><input name="name" autocomplete="name" maxlength="120" required></label>
+        <label class="cf-field"><span>Email</span><input name="email" type="email" autocomplete="email" maxlength="200" required></label>
+        <label class="cf-field"><span>Message</span><textarea name="message" rows="5" maxlength="6000" required></textarea></label>
+        <div class="cf-hp" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="t" value="">
+        <button type="submit" class="cf-send">Send</button>
+        <p class="cf-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </div>
 </section>
@@ -401,7 +410,7 @@
   <div class="modal__body"></div>
 </dialog>
 
-<script src="js/app.js" defer></script>
+<script src="js/app.js?v=2" defer></script>
 <!-- Agent 37X: AI chat assistant (answers from this site; handler on walvis.ca). Remove this line to turn it off. -->
 <script src="assets/agent-37x/agent-37x.js?v=1" defer></script>
 </body>
