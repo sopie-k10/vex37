@@ -93,7 +93,7 @@
   }
 
   // ── Hero thermal field ──────────────────────────────────────────────
-  // A low-resolution heat map (about 1 cell per 9 CSS px) drawn on a canvas
+  // A low-resolution heat map (about 1 cell per 3 CSS px) drawn on a canvas
   // and scaled up by the browser. A few drifting heat sources sit behind the
   // robot; the pointer (or a finger) adds one more. Values are banded into
   // isotherms and coloured on a thermal-camera scale. It pauses off-screen
@@ -121,7 +121,10 @@
     const size = () => {
       const r = cvs.getBoundingClientRect();
       aspect = r.width / Math.max(1, r.height);
-      W = Math.max(48, Math.min(170, Math.round(r.width / 9)));
+      // Darren, 2026-10-18 13:34: "the v2 fire is blurry". Was 1 cell per 9 CSS px (cap 170),
+      // which the browser smeared when scaling up. Now 1 cell per 3 px (cap 560): sharp isotherm
+      // edges, still ~1.2 M cheap ops a frame at 30 fps on a wide screen.
+      W = Math.max(96, Math.min(560, Math.round(r.width / 3)));
       H = Math.max(36, Math.round(W / aspect));
       cvs.width = W; cvs.height = H;
       img = ctx.createImageData(W, H);
