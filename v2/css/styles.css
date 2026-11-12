@@ -906,6 +906,13 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1; font-family: var(--font-display);
 .sponsor-card--gold   .sponsor-card__tier { color: #8a6200; }
 .sponsor-card--silver .sponsor-card__tier { color: #5d5d66; }
 .sponsor-card--bronze .sponsor-card__tier { color: #7d4c22; }
+
+/* Desktop: 4 equal tiles per row; a short last row (Bronze Gear) is centred. */
+@media (min-width: 1100px) {
+  .sponsors-wall { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .sponsor-card { grid-column: span 2; }
+  .sponsor-card--gold + .sponsor-card--bronze { grid-column: 2 / span 2; }
+}
 .sponsors-current__cta { margin-top: 2.25rem; text-align: center; }
 
 /* ── contact ───────────────────────────────────────────────────────────── */

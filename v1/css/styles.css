@@ -709,6 +709,13 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1.05; font-family: var(--font-displa
 .sponsor-card--gold   .sponsor-card__tier { color: #b8881a; }
 .sponsor-card--silver .sponsor-card__tier { color: #777777; }
 .sponsor-card--bronze .sponsor-card__tier { color: #8b5a2b; }
+
+/* Desktop: 4 equal tiles per row; a short last row (Bronze Gear) is centred. */
+@media (min-width: 1100px) {
+  .sponsors-wall { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+  .sponsor-card { grid-column: span 2; }
+  .sponsor-card--gold + .sponsor-card--bronze { grid-column: 2 / span 2; }
+}
 .sponsor-card--platinum .sponsor-card__tier {
   color: #1a1a1a;
   background: linear-gradient(90deg, #b3b3b3 0%, #ffffff 50%, #b3b3b3 100%);
