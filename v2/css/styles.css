@@ -880,6 +880,10 @@ h1, h2, h3 { margin: 0 0 .5em; line-height: 1; font-family: var(--font-display);
   max-width: 100%; max-height: 100%;
 }
 .sponsor-card--mark img { max-width: 60%; max-height: 100%; }
+/* Bronze Gear logos sit clearly smaller than Gold Chassis: capped in height and
+   width so a wide wordmark (Knak) or a tall mark (Newman Tools) never outgrows Gold. */
+.sponsor-card--bronze img, .sponsor-card--bronze.sponsor-card--mark img { max-height: 48px; max-width: 55%; }
+.sponsor-card__tier { white-space: nowrap; }
 .sponsor-card__name {
   flex: 1;
   display: flex;
